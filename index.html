@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inna Hair Studio — Senior-Focused Salon Services</title>
+  <meta name="description" content="Inna Hair Studio provides personalized, high-quality salon services with care, comfort, and respect — thoughtfully designed with senior clients in mind." />
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#111c35;
+      --text:#e5e7eb;
+      --muted:#b9c2d0;
+      --line:rgba(255,255,255,.12);
+      --accent:#c7a36a;
+      --accent2:#7dd3fc;
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(125,211,252,.20), transparent 60%),
+        radial-gradient(900px 600px at 90% 0%, rgba(199,163,106,.18), transparent 55%),
+        linear-gradient(180deg, #0b1226, #0f172a 55%, #0b1226);
+      line-height:1.55;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 70px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:12px 14px; border:1px solid var(--line);
+      background: rgba(17,28,53,.55);
+      backdrop-filter: blur(10px);
+      border-radius:999px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; min-width:0}
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(199,163,106,.95), rgba(125,211,252,.85));
+      box-shadow: 0 10px 20px rgba(0,0,0,.25);
+      flex:0 0 auto;
+    }
+    .brand h1{
+      font-size:14px; margin:0; letter-spacing:.4px;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .nav a{
+      text-decoration:none;
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      color:var(--muted);
+    }
+    .nav a:hover{
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+    }
+
+    .hero{
+      margin-top:18px;
+      display:grid; grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .nav{display:none}
+    }
+
+    .card{
+      border:1px solid var(--line);
+      background: rgba(17,28,53,.55);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .heroText{padding:26px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding:8px 12px; border-radius:999px;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(199,163,106,.15);
+    }
+    .heroText h2{
+      font-size:38px; line-height:1.12;
+      margin:14px 0 10px;
+      letter-spacing:-.6px;
+    }
+    .heroText p{margin:0 0 16px; color:var(--muted); font-size:16px}
+    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+    }
+    .btn.primary{
+      border-color: rgba(199,163,106,.55);
+      background: linear-gradient(135deg, rgba(199,163,106,.30), rgba(125,211,252,.12));
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .meta{
+      display:flex; gap:14px; flex-wrap:wrap;
+      margin-top:16px; color:var(--muted); font-size:13px;
+    }
+    .meta span{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px; border:1px dashed rgba(255,255,255,.14);
+      border-radius:999px;
+      background: rgba(0,0,0,.08);
+    }
+
+    .heroMedia{overflow:hidden; position:relative}
+    .heroMedia img{
+      width:100%; height:100%; display:block; object-fit:cover;
+      filter: saturate(1.02) contrast(1.02);
+    }
+    .heroMedia .badge{
+      position:absolute; left:14px; bottom:14px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(15,23,42,.55);
+      backdrop-filter: blur(10px);
+      color:var(--text);
+      font-size:13px;
+      max-width: 85%;
+    }
+
+    .section{margin-top:20px}
+    .sectionHeader{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:14px;
+      padding:18px 20px;
+      border-bottom:1px solid var(--line);
+    }
+    .sectionHeader h3{margin:0; font-size:18px}
+    .sectionHeader p{margin:0; color:var(--muted); font-size:13px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      padding:16px;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .block{padding:18px}
+    .block h4{margin:0 0 10px; font-size:16px}
+    .block p{margin:0; color:var(--muted)}
+    .divider{height:1px; background:var(--line); margin:14px 0}
+
+    .cols{
+      display:grid; grid-template-columns: repeat(3, 1fr);
+      gap:12px; padding:16px;
+    }
+    @media (max-width: 900px){
+      .cols{grid-template-columns:1fr}
+    }
+    .pill{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: 16px;
+      padding:14px;
+    }
+    .pill strong{display:block; margin-bottom:8px}
+    .pill span{color:var(--muted); font-size:13px}
+
+    .servicesWrap{padding:16px}
+    .serviceGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 900px){
+      .serviceGrid{grid-template-columns:1fr}
+    }
+    details{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+    }
+    summary{
+      cursor:pointer;
+      padding:14px 14px;
+      list-style:none;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      font-weight:700;
+    }
+    summary::-webkit-details-marker{display:none}
+    details[open] summary{border-bottom:1px solid var(--line)}
+    .detailsBody{padding: 12px 14px 14px}
+    .detailsBody ul{margin:0; padding-left:18px; color:var(--muted)}
+    .detailsBody li{margin:6px 0}
+
+    .faq{padding:16px}
+    .qa{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      padding:14px;
+      margin-bottom:12px;
+    }
+    .qa h5{margin:0 0 6px; font-size:14px}
+    .qa p{margin:0; color:var(--muted)}
+
+    .contact{
+      display:grid; grid-template-columns: 1fr 1fr;
+      gap:16px; padding:16px;
+    }
+    @media (max-width: 900px){
+      .contact{grid-template-columns:1fr}
+    }
+    .contactBox{padding:18px}
+    .small{font-size:13px; color:var(--muted)}
+    .footer{
+      margin-top:22px;
+      padding:18px 8px 0;
+      color:var(--muted);
+      text-align:center;
+      font-size:12px;
+    }
+    .hint{
+      display:inline-block;
+      padding:8px 10px;
+      border:1px dashed rgba(125,211,252,.35);
+      border-radius:12px;
+      background: rgba(125,211,252,.06);
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="topbar" aria-label="Site header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Inna Hair Studio</h1>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#mission">Mission</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#culture">Culture</a>
+        <a href="#services">Services</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Hero">
+        <div class="card heroText">
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> Proudly serving salons & senior communities across Northern Virginia</div>
+          <h2>Senior-focused salon care — calm, gentle, and never rushed.</h2>
+          <p>
+            Inna Hair Studio provides personalized, high-quality salon services with a focus on care, comfort, and respect.
+            Every client is treated with dignity, patience, and attention — just like a boutique salon experience.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="tel:+15719699101">Call Now</a>
+            <a class="btn" href="#services">View Services</a>
+            <a class="btn" href="mailto:innahairstudionova@yahoo.com">Email</a>
+          </div>
+
+          <div class="meta" aria-label="Highlights">
+            <span>✓ Gentle, unrushed appointments</span>
+            <span>✓ Senior-focused experience</span>
+            <span>✓ Warm, private environment</span>
+          </div>
+
+          <div class="divider"></div>
+          <div class="small">
+            <span class="hint">Contact:</span> 571-969-9101 • innahairstudionova@yahoo.com
+          </div>
+        </div>
+
+        <div class="card heroMedia" aria-label="Photo">
+          <!-- Put Inna's photo in the same folder and name it exactly: inna.jpg -->
+          <img src="inna.jpg" alt="Inna Bianchi — Hairstylist" />
+          <div class="badge">
+            Thoughtful, professional hair services designed with senior clients in mind.
+          </div>
+        </div>
+      </section>
+
+      <section id="mission" class="section card">
+        <div class="sectionHeader">
+          <h3>Our Mission</h3>
+          <p>Care • Comfort • Respect</p>
+        </div>
+        <div class="grid">
+          <div class="block">
+            <p>
+              Inna Hair Studio provides personalized, high-quality salon services with a focus on care, comfort, and respect.
+              Every client is treated with dignity, patience, and attention — just as they would be in a traditional boutique salon.
+            </p>
+            <div class="divider"></div>
+            <p>
+              At Inna Hair Studio, the experience is never rushed. Each guest is welcomed warmly, listened to carefully, and styled with intention.
+              Services are provided in a calm, private, and supportive environment where clients feel valued and confident.
+            </p>
+          </div>
+          <div class="block">
+            <p>
+              As we age, our needs may change — but the desire to feel beautiful, well-groomed, and cared for never does.
+              Inna Hair Studio is dedicated to maintaining this standard by offering thoughtful, professional hair services designed specifically with senior clients in mind.
+            </p>
+
+            <div class="divider"></div>
+
+            <div class="cols" aria-label="Values">
+              <div class="pill">
+                <strong>Patience</strong>
+                <span>We take the time your service deserves.</span>
+              </div>
+              <div class="pill">
+                <strong>Dignity</strong>
+                <span>Every client is treated with genuine respect.</span>
+              </div>
+              <div class="pill">
+                <strong>Comfort</strong>
+                <span>Calm, supportive, welcoming atmosphere.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="leadership" class="section card">
+        <div class="sectionHeader">
+          <h3>Leadership</h3>
+          <p>Experience you can trust</p>
+        </div>
+        <div class="grid">
+          <div class="block">
+            <h4>Inna Bianchi</h4>
+            <p>
+              Inna Bianchi has ten years of experience working in the senior beauty and aesthetic services industry. Since 2005,
+              she has dedicated her career to working in salons, providing hair services with patience, compassion, and professionalism.
+            </p>
+          </div>
+          <div class="block">
+            <p>
+              Inna has spent her entire career as a hairstylist, specializing in working with older adults and understanding their unique needs.
+              Her approach is gentle, attentive, and client-focused, ensuring that every individual feels comfortable, respected, and confident.
+            </p>
+            <div class="divider"></div>
+            <p>
+              With years of hands-on experience, Inna believes that great hair care is not only about appearance —
+              it is about connection, trust, and making each client feel seen and cared for.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="culture" class="section card">
+        <div class="sectionHeader">
+          <h3>Our Culture</h3>
+          <p>Kindness + professionalism</p>
+        </div>
+        <div class="grid">
+          <div class="block">
+            <p>
+              At Inna Hair Studio, our culture is built on respect, kindness, and thoughtful care.
+              Every client is treated with patience, dignity, and genuine attention, regardless of age or level of service.
+            </p>
+            <div class="divider"></div>
+            <p>
+              We believe that quality hair care is more than just technique — it is about listening,
+              understanding individual needs, and creating a comfortable, welcoming experience.
+            </p>
+          </div>
+
+          <div class="block">
+            <p>
+              Our goal is to provide services in a calm and supportive environment where clients feel safe, valued, and confident.
+              Inna Hair Studio is guided by a simple philosophy: everyone deserves to feel well cared for and look their best at every stage of life.
+            </p>
+            <div class="divider"></div>
+            <p>
+              Our work is client-focused, detail-oriented, and rooted in trust. This culture allows us to create meaningful connections
+              and deliver a salon experience that feels personal, respectful, and elevated.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section card">
+        <div class="sectionHeader">
+          <h3>Services</h3>
+          <p>Thoughtful options for every need</p>
+        </div>
+
+        <div class="servicesWrap">
+          <div class="serviceGrid" role="list">
+            <details role="listitem">
+              <summary>Cleanse &amp; Condition <span aria-hidden="true">＋</span></summary>
+              <div class="detailsBody">
+                <ul>
+                  <li>Shampoo</li>
+                  <li>Conditioner</li>
+                  <li>Color Enhancing</li>
+                  <li>Deep Conditioning Treatment</li>
+                </ul>
+              </div>
+            </details>
+
+            <details role="listitem">
+              <summary>Design <span aria-hidden="true">＋</span></summary>
+              <div class="detailsBody">
+                <ul>
+                  <li>Women’s Haircut</li>
+                  <li>Men’s Haircut</li>
+                  <li>Bang Trim</li>
+                  <li>Neck Trim</li>
+                </ul>
+              </div>
+            </details>
+
+            <details role="listitem">
+              <summary>Finish &amp; Style <span aria-hidden="true">＋</span></summary>
+              <div class="detailsBody">
+                <ul>
+                  <li>Roller Set Style</li>
+                  <li>Curling Iron Style</li>
+                  <li>Flat Iron Style</li>
+                  <li>Blowout Style</li>
+                </ul>
+              </div>
+            </details>
+
+            <details role="listitem">
+              <summary>Texture <span aria-hidden="true">＋</span></summary>
+              <div class="detailsBody">
+                <ul>
+                  <li>Perm</li>
+                  <li>Relaxer</li>
+                </ul>
+              </div>
+            </details>
+
+            <details role="listitem">
+              <summary>Color <span aria-hidden="true">＋</span></summary>
+              <div class="detailsBody">
+                <ul>
+                  <li>Single Process Color</li>
+                  <li>Partial Highlight</li>
+                  <li>Full Highlight</li>
+                  <li>Color Rinse</li>
+                  <li>Gloss / Toner</li>
+                </ul>
+              </div>
+            </details>
+
+            <details role="listitem">
+              <summary>Spa Treatments <span aria-hidden="true">＋</span></summary>
+              <div class="detailsBody">
+                <ul>
+                  <li>Manicure</li>
+                  <li>Pedicure</li>
+                  <li>Polish Change</li>
+                  <li>French Polish</li>
+                  <li>Hand Massage</li>
+                  <li>Foot Massage</li>
+                  <li>Head, Neck &amp; Shoulder Massage</li>
+                  <li>Men’s Facial Grooming</li>
+                  <li>Brow Shaping</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section card">
+        <div class="sectionHeader">
+          <h3>FAQ</h3>
+          <p>Clear, simple answers</p>
+        </div>
+
+        <div class="faq">
+          <div class="qa">
+            <h5>How are service prices set? Will prices increase?</h5>
+            <p>
+              Service prices are set in accordance with state regulations and are typically maintained for a designated period of time
+              (such as 30, 60, or 90 days). From time to time, services may be adjusted or enhanced, and minor price changes may occur.
+              Any updates to pricing are communicated in advance to ensure transparency and clarity.
+            </p>
+          </div>
+
+          <div class="qa">
+            <h5>Can we choose or approve the stylist for our salon?</h5>
+            <p>
+              Yes, absolutely. Client comfort and trust are very important, and stylist selection is always handled with care and mutual agreement.
+            </p>
+          </div>
+
+          <div class="qa">
+            <h5>How much does this service cost?</h5>
+            <p>
+              There are no management or additional service fees. Clients are charged only for the services they receive.
+            </p>
+          </div>
+
+          <div class="qa">
+            <h5>What are the stylist’s qualifications?</h5>
+            <p>
+              All stylists are licensed professionals and are selected based on experience, skill, and professionalism.
+              Each stylist brings hands-on experience and a commitment to providing respectful, high-quality care.
+            </p>
+          </div>
+
+          <div class="qa">
+            <h5>What if I want to keep my current stylist?</h5>
+            <p>
+              That can be discussed. Current stylists may be interviewed to determine compatibility and availability,
+              ensuring that services continue smoothly and meet professional standards.
+            </p>
+          </div>
+
+          <div class="qa">
+            <h5>How are schedules and days of operation determined?</h5>
+            <p>
+              Service schedules are arranged based on client needs and availability. Days and times of operation are discussed in advance
+              to ensure convenience and consistency.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section card">
+        <div class="sectionHeader">
+          <h3>Contact</h3>
+          <p>Call or email to schedule</p>
+        </div>
+
+        <div class="contact">
+          <div class="contactBox">
+            <h4>Inna Hair Studio</h4>
+            <p class="small">
+              Proudly serving salons and senior communities throughout Northern Virginia
+            </p>
+            <div class="divider"></div>
+            <p class="small">
+              Phone: <a href="tel:+15719699101">571-969-9101</a><br/>
+              Email: <a href="mailto:innahairstudionova@yahoo.com">innahairstudionova@yahoo.com</a>
+            </p>
+          </div>
+
+          <div class="contactBox">
+            <h4>Quick actions</h4>
+            <p class="small">
+              Tap to call or email. If you want, we can also add a “Book Appointment” button later.
+            </p>
+            <div class="divider"></div>
+            <a class="btn primary" href="tel:+15719699101">Call Now</a>
+            <a class="btn" href="mailto:innahairstudionova@yahoo.com">Email Us</a>
+            <a class="btn" href="#services">Services</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">
+        © <span id="year"></span> Inna Hair Studio. All rights reserved.
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
